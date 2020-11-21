@@ -6,15 +6,15 @@
   "scripts": {
     "test": "serverless-bundle test"
   },
-  "author": "",
+  "author": "Charles Sampson",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/AnomalyInnovations/serverless-nodejs-starter.git"
   },
   "devDependencies": {
-    "aws-sdk": "^2.783.0",
-    "serverless-bundle": "^3.2.0",
+    "aws-sdk": "^2.797.0",
+    "serverless-bundle": "^3.2.1",
     "serverless-dotenv-plugin": "^2.1.1",
     "serverless-offline": "^5.3.3"
   },
