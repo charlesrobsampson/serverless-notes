@@ -1,0 +1,12 @@
+endpoints:
+  DELETE - https://uo7we1rdn3.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  PUT - https://uo7we1rdn3.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  GET - https://uo7we1rdn3.execute-api.us-east-1.amazonaws.com/prod/notes
+  GET - https://uo7we1rdn3.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  POST - https://uo7we1rdn3.execute-api.us-east-1.amazonaws.com/prod/notes
+functions:
+  delete: notes-api-prod-delete
+  update: notes-api-prod-update
+  list: notes-api-prod-list
+  get: notes-api-prod-get
+  create: notes-api-prod-create

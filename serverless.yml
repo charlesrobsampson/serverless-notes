@@ -19,26 +19,44 @@ provider:
   # the following line. Also, make sure to not
   # commit your .env.
   #
-  # environment:
-  #  tablename: notes
-  # iamRoleStatements:
-  #   - Effect: Allow
-  #     Action:
-  #       - dynamodb:Scan
-  #       - dynamodb:Query
-  #       - dynamodb:GetItem
-  #       - dynamodb:PutItem
-  #       - dynamodb:UpdateItem
-  #       - dynamodb:DeleteItem
-  #       - dynamodb:DescribeTable
-  #     Resource: "arn:aws:dynamodb:us-east-1:*:*"
+  environment:
+   tableName: notes
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:Query
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:DescribeTable
+      Resource: "arn:aws:dynamodb:us-east-1:*:*"
 
 functions:
-  hello:
-    handler: handler.hello
+  delete:
+    handler: delete.main
     events:
       - http:
-          path: hello
+          path: notes/{id}
+          method: delete
+  update:
+    handler: update.main
+    events:
+      - http:
+          path: notes/{id}
+          method: put
+  list:
+    handler: list.main
+    events:
+      - http:
+          path: notes
+          method: get
+  get:
+    handler: get.main
+    events:
+      - http:
+          path: notes/{id}
           method: get
   create:
     handler: create.main
@@ -46,5 +64,5 @@ functions:
       - http:
           path: notes
           method: post
-          cors: true
-          authorizer: aws_iam
+          # cors: true
+          # authorizer: aws_iam
